@@ -1,4 +1,13 @@
 <resources>
     <string name="app_name">MyMap</string>
     <string name="start">تایید مبدا</string>
+    <string name="general_error">Error</string>
+    <string name="not_found">Not found</string>
+    <string name="token_expire_login_again">Token expire</string>
+    <string name="connection_error">connection Error</string>
+    <string name="timeout">Timeout</string>
+    <string name="location">منطقه مورد نظر را روی نقشه انتخاب کنید</string>
+    <string name="ok">تایید</string>
+    <string name="day">تاریخ %d</string>
+
 </resources>

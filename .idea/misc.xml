@@ -4,7 +4,11 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/pcfix/AndroidStudioProjects/MyMap/app/src/main/res/drawable/ic_location.xml" value="0.2203125" />
-        <entry key="..\:/Users/pcfix/AndroidStudioProjects/MyMap/app/src/main/res/layout/activity_main.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/pcfix/AndroidStudioProjects/MyMap/app/src/main/res/drawable/rec_et.xml" value="0.2203125" />
+        <entry key="..\:/Users/pcfix/AndroidStudioProjects/MyMap/app/src/main/res/drawable/rec_text_view.xml" value="0.2203125" />
+        <entry key="..\:/Users/pcfix/AndroidStudioProjects/MyMap/app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="..\:/Users/pcfix/AndroidStudioProjects/MyMap/app/src/main/res/layout/item_daily.xml" value="0.5" />
+        <entry key="..\:/Users/pcfix/AndroidStudioProjects/MyMap/app/src/main/res/layout/main_fragment.xml" value="0.25" />
       </map>
     </option>
   </component>

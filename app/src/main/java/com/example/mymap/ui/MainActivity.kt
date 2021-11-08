@@ -1,4 +1,4 @@
-package com.example.mymap
+package com.example.mymap.ui
 
 import android.Manifest
 import android.content.pm.PackageManager
@@ -16,37 +16,38 @@ import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MapStyleOptions
 import com.google.android.gms.maps.model.Marker
 import com.google.android.gms.maps.model.MarkerOptions
+import dagger.hilt.android.AndroidEntryPoint
 
-const val REQUEST_LOCATION_PERMISSION = 1000
+/*const val REQUEST_LOCATION_PERMISSION = 1000*/
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
-    companion object{
-        const val TAG = "ERROR"
-    }
-    lateinit var binding: ActivityMainBinding
-    lateinit var map: GoogleMap
+    /* companion object{
+         const val TAG = "ERROR"
+     }*/
+    private lateinit var binding: ActivityMainBinding
 
-    var startLatLng: LatLng? = null
-    var endLatLng: LatLng? = null
+
+    //  var startLatLng: LatLng? = null
+    // var endLatLng: LatLng? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
-        val mapFragment = supportFragmentManager.findFragmentById(R.id.map) as SupportMapFragment
+        /*   val mapFragment = supportFragmentManager.findFragmentById(R.id.map) as SupportMapFragment
 
         mapFragment.getMapAsync { map ->
             this.map = map
             enableMyLocation()
-           // map.moveCamera(CameraUpdateFactory.newLatLngZoom(tehranLatLng, 10f))
+           map.moveCamera(CameraUpdateFactory.newLatLngZoom(tehranLatLng, 10f))*/
 
-            //        map.addMarker(MarkerOptions().position(tehranLatLng).title("tehran").draggable(true))
+        //        map.addMarker(MarkerOptions().position(tehranLatLng).title("tehran").draggable(true))
 
-            /*    map.uiSettings.setAllGesturesEnabled(true)
+        //*    map.uiSettings.setAllGesturesEnabled(true)
 
-                map.setOnMarkerDragListener(object : GoogleMap.OnMarkerDragListener {
+        /*     map.setOnMarkerDragListener(object : GoogleMap.OnMarkerDragListener {
                     override fun onMarkerDragStart(p0: Marker?) {
 
                     }
@@ -68,7 +69,7 @@ class MainActivity : AppCompatActivity() {
                 map.setOnMarkerClickListener {
                     it.remove()
                     return@setOnMarkerClickListener true
-                }*/
+                }
 
 
 
@@ -120,9 +121,9 @@ class MainActivity : AppCompatActivity() {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
         if (requestCode == REQUEST_LOCATION_PERMISSION) {
             if (grantResults.)
-           /* if (grantResults.contains(PackageManager.PERMISSION_GRANTED)) {
+            if (grantResults.contains(PackageManager.PERMISSION_GRANTED)) {
                 enableMyLocation()
-            }*/
+            }
         }
     }
 
@@ -132,5 +133,10 @@ class MainActivity : AppCompatActivity() {
             this,
             Manifest.permission.ACCESS_FINE_LOCATION
         ) == PackageManager.PERMISSION_GRANTED
+    }
+    }
+}
+*/
+
     }
 }
