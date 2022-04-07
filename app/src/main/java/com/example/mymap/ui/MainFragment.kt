@@ -35,20 +35,20 @@ class MainFragment : Fragment() {
     }
 
     private val viewModel by viewModels<MainViewModel>()
-    private lateinit var binding: MainFragmentBinding
+    private lateinit var binding : MainFragmentBinding
 
-    private lateinit var position: LatLng
-    private val iranLatLng: LatLng = LatLng(32.19690, 54.37704)
+    private lateinit var position : LatLng
+    private val iranLatLng : LatLng = LatLng(32.19690, 54.37704)
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
+        inflater : LayoutInflater, container : ViewGroup?,
+        savedInstanceState : Bundle?
+    ) : View {
         binding = MainFragmentBinding.inflate(inflater)
         return binding.root
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+    override fun onViewCreated(view : View, savedInstanceState : Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         binding.viewModel = viewModel
@@ -78,11 +78,7 @@ class MainFragment : Fragment() {
                 Timber.i(it.message.toString())
             } else {
                 val getData = it.data
-               viewModel.temp = getData?.current?.temp.toString().substring(0..1)
-
-              /*  val data = getData?.current?.temp.toString()
-                data.substring(0,data.indexOf(".")-1)
-                viewModel.temp = data*/
+                viewModel.temp = getData?.current?.temp.toString().substring(0..1)
 
                 getData?.daily?.let {
                     createRecyclerView(it)
@@ -92,7 +88,7 @@ class MainFragment : Fragment() {
         }
     }
 
-    private fun createRecyclerView(dailyList: List<Daily>) {
+    private fun createRecyclerView(dailyList : List<Daily>) {
         val adapter = GroupieAdapter()
 
         val dailyListItem = dailyList.map(::DailyItem)
@@ -101,13 +97,13 @@ class MainFragment : Fragment() {
         binding.rvDaily.adapter = adapter
     }
 
-    private fun addMarkerToCenterCamera(): LatLng {
+    private fun addMarkerToCenterCamera() : LatLng {
         viewModel.centerLocation = viewModel.map.cameraPosition.target
         addMarker(viewModel.centerLocation)
         return viewModel.centerLocation
     }
 
-    private fun addMarker(latLng: LatLng) {
+    private fun addMarker(latLng : LatLng) {
         viewModel.map.addMarker(
             MarkerOptions().position(latLng).title(
                 viewModel.temp
@@ -115,13 +111,15 @@ class MainFragment : Fragment() {
         )?.showInfoWindow()
     }
 
-    private fun enableMyLocation(){
-        if (isPermissionGranted()){
+    private fun enableMyLocation() {
+        if (isPermissionGranted()) {
             viewModel.map.isMyLocationEnabled = true
-        }else{
-            ActivityCompat.requestPermissions(requireActivity(),
+        } else {
+            ActivityCompat.requestPermissions(
+                requireActivity(),
                 arrayOf(Manifest.permission.ACCESS_FINE_LOCATION),
-                REQUEST_LOCATION_PERMISSION)
+                REQUEST_LOCATION_PERMISSION
+            )
         }
     }
 
@@ -131,16 +129,18 @@ class MainFragment : Fragment() {
         permissions : Array<out String>,
         grantResults : IntArray
     ) {
-        super.onRequestPermissionsResult(requestCode, permissions,
-            grantResults)
-        if (requestCode == REQUEST_LOCATION_PERMISSION){
-            if (grantResults.contains(PackageManager.PERMISSION_GRANTED)){
+        super.onRequestPermissionsResult(
+            requestCode, permissions,
+            grantResults
+        )
+        if (requestCode == REQUEST_LOCATION_PERMISSION) {
+            if (grantResults.contains(PackageManager.PERMISSION_GRANTED)) {
                 enableMyLocation()
             }
         }
     }
 
-    private fun isPermissionGranted():Boolean{
+    private fun isPermissionGranted() : Boolean {
         return ContextCompat.checkSelfPermission(
             requireContext(),
             Manifest.permission.ACCESS_FINE_LOCATION
